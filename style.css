@@ -1,0 +1,409 @@
+body {
+    width:        100vw;
+    margin:       0;
+    overflow-x:   hidden;
+    font-family:  "Tahoma", sans-serif;
+    font-size:    17px;
+
+    background-color:  rgba(15, 204, 69, 0.678);
+}
+
+
+a {
+    font-size:        26px;
+    color:            rgb(120, 120, 120);
+    text-decoration:  none;
+}
+
+introduction_title {
+    font-size:  50px;
+    color:      rgb(0, 0, 0)
+}
+
+introduction_p {
+    font-size:  26px;
+    color:      rgba(21, 21, 21, 0.768)
+}
+
+p {
+    font-size:  20px;
+    color:      rgba(0, 0, 0, 0.7)
+}
+
+paragraph_title {
+    font-size:  36px;
+    color:      rgba(0, 0, 0, 0.8)
+}
+
+
+
+
+
+
+
+
+#navbar {
+    background-color:  darkgreen;
+
+    width:   100%;
+    height:  3rem;
+
+    display:          flex;
+    justify-content:  center;
+    align-items:      center;
+    gap:              30px;
+
+    z-index: 10;
+}
+
+#navbar > a {
+    color:  white;
+}
+
+
+
+#introduction {
+    /* background-image:   url("gameplay.png");
+    object-fit:         cover;
+    background-repeat:  no-repeat; */
+
+    display:           flex;
+    justify-content:   center;
+    align-items:       center;
+
+    width:             100%;
+    height:            100vh;
+
+}
+
+#introduction_container {
+    /* border:            5px dashed blue; */
+
+    width:             min(650px, 90vw);
+    padding:           10px;
+
+    text-align:  center;
+}
+
+#introduction_container p {
+    font-size:  24px;
+}
+
+
+
+
+
+
+
+
+#main_body {
+    /* border:             5px dashed green; */
+    width:  100%;
+}
+
+#main_body > div {
+    height:  min(auto, 100vh);
+}
+
+
+
+
+
+#about_the_game {
+    /* border:            5px dashed blue; */
+    width:       100%;
+    padding:     20px;
+    margin:      auto;
+
+    text-align:  center;
+}
+
+
+#descriptions {
+    display:                grid;
+    grid-template-columns:  repeat(14, 1fr); /* 8 equal columns */
+    grid-template-rows:     repeat(13, 1fr);    /* 5 equal rows */
+    grid-template-areas:
+        ".      .      .      .      .      .      .      .      first  first  first  first  first  first  "
+        ".      .      .      .      .      .      .      .      first  first  first  first  first  first  "
+        ".      .      .      .      .      .      .      .      first  first  first  first  first  first  "
+        "second second second second second second .      .      first  first  first  first  first  first  "
+        "second second second second second second .      .      first  first  first  first  first  first  "
+        "second second second second second second .      .      first  first  first  first  first  first  "
+        "second second second second second second .      .      .      .      .      .      .      .      "
+        "second second second second second second .      .      .      .      .      .      .      .      "
+        "second second second second second second .      third  third  third  third  third  .      .      "
+        ".      .      .      .      .      .      .      third  third  third  third  third  .      .      "
+        ".      .      .      .      .      .      .      third  third  third  third  third  .      .      "
+        ".      .      .      .      .      .      .      third  third  third  third  third  .      .      "
+        ".      .      .      .      .      .      .      third  third  third  third  third  .      .      "
+        ;
+
+    width:            60%;
+    height:           100vh;
+    margin:           0 auto;
+}
+
+#random {  /* Substitute in "from_top" */
+    grid-area:  first;
+}
+#controls {  /* Substitute in "from_bottom" */
+    grid-area:  second;
+}
+#easter_eggs {  /* Substitute in "from_bottom" */
+    grid-area:  third;
+}
+
+
+/*      #random > .description { }
+        #controls > .description { }
+        #easter_eggs > .description { }     */
+
+.description_img {
+    width:            100%;
+    height:           100%;
+    
+    transition:       transform 0.9s ease;
+}
+
+.description_container:hover .description_img {
+    transform:  scale(1.1);
+}
+
+
+.description {
+    position:          absolute;
+    transition:        0.5s ease;
+}
+
+
+/* from_top, from_bottom */
+#random > .description, #controls > .description, #easter_eggs > .description {
+    width:   100%;
+    height:  0;
+}
+
+/* from_top */
+#controls > .description {
+    position:          absolute;
+    top:               0;
+    left:              0;
+    
+    transition:        .5s ease;
+}
+
+/* from_bottom */
+#random > .description, #easter_eggs > .description {
+    position:          absolute;
+    bottom:            0;
+    left:              0;
+    
+    transition:        .5s ease;
+}
+
+#random:hover > .description, #controls:hover > .description, #easter_eggs:hover > .description {
+    height:  100%;
+}
+
+
+
+
+
+
+.description_container {
+    --border-radius:  50px;
+
+    /* border:    5px dashed purple; */
+    
+    position:  relative;
+    
+    margin:  15px;
+}
+  
+  
+/* Overlay for the Img */
+.description {
+    /* border:          5px dashed blue; */
+    
+    width:             0;
+    height:            100%;
+
+    border-radius:     var(--border-radius);
+    
+    display:           flex;
+    flex-direction:    column;
+    justify-content:   center;
+    align-items:       center;
+    gap:               5px;
+    
+    background-color:  rgba(255, 255, 255, 0.7);
+    color:             black;
+    
+    overflow:          hidden;
+}
+  
+  
+.description_container:hover .description {
+    width:          100%;
+    height:         100%;
+    left:           0;
+
+    padding:        var(--padding);
+}
+
+
+.description_img {
+    object-fit:       cover;
+    border-radius:    var(--border-radius);
+}
+
+.description > hr {
+    --color:           0, 0, 0;
+
+    border:            none;
+    height:            2px;
+    background-color:  rgb(var(--color));
+    opacity:           0.5;
+    box-shadow:        0 3px 5px rgba(var(--color), 0.9);
+    width:             80%;
+    margin-top:        0;
+    margin-bottom:     25px;
+}
+
+.description > p {
+    width:         85%;
+}
+
+
+
+
+
+
+
+#meet_the_team {
+    /* border:            5px dashed blue; */
+    /* background-color:  rgba(151, 255, 180, 0.5); */
+    /* background-image:  url("https://res.cloudinary.com/ybmedia/image/upload/c_crop,h_1123,w_2000,x_0,y_0/c_fill,f_auto,h_1215,q_auto,w_2160/v1/m/4/b/4b4e8a03ce096567ccf8f2a9283c224f85fe6f89/famous-foursomes-pop-culture.jpg"); */
+
+    width:       100%;
+    height:      fit-content;
+    margin:      auto;
+    text-align:  center;
+}
+
+
+#team_members {
+    display:          flex;
+    flex-wrap:        wrap;
+    justify-content:  center;
+
+    width:   90%;
+    height:  fit-content;
+    margin:  0 auto;
+}
+
+.member {
+    /* border:            2px solid lightblue; */
+    background-color:  rgba(255, 255, 255, 0.5);
+
+    position:  relative;
+
+    width:   max(350px, 25%);
+    height:  100vh;
+}
+
+.member_container {
+    width:   315px;
+    height:  30rem;
+    margin:  0 auto;
+
+    position:  absolute;
+    top:       calc(0.7 * (100vh - 30rem));
+
+    text-align:  left;
+}
+
+.member_container > hr {
+    --color:           0, 0, 255; /* Must be in comma-separated form */
+
+    border:            none;
+    background-color:  rgb(var(--color));
+    opacity:           0.5;
+    box-shadow:        0 3px 5px rgba(var(--color), 0.4);
+
+    height:         5px;
+    width:          0;
+    margin:         0;
+    margin-bottom:  5px;
+}
+
+.member_container > paragraph_title {
+    padding-bottom:  100px;
+}
+
+.member_container > p {
+    width:   85%;
+    height:  23rem;
+
+    line-height:   30px;
+    overflow:      hidden
+}
+
+.member_container > a {
+    margin-top:  15px;
+
+    text-decoration:  overline solid rgb(80, 80, 80);
+    color:            gray;
+}
+
+
+
+
+
+
+#footer {
+    /* border: 5px dashed black; */
+
+    width:   100%;
+    height:  250px;
+
+    display:          flex;
+    justify-content:  center;
+    align-items:      center;
+}
+
+#footer_container {
+    /* border:  5px dashed greenyellow; */
+
+    width:   min(80vw, 600px);
+    height:  80%;
+
+    display:          flex;
+    flex-direction:   row;
+    justify-content:  center;
+    align-items:      center;
+    gap:              10px;
+}
+
+#footer_left {
+    /* border:  5px dashed red; */
+    text-align:  center;
+}
+
+#footer_right {
+    /* border:  5px dashed blue; */
+}
+
+#footer_container > hr {
+    --color:           0, 100, 0; /* Must be in comma-separated form */
+
+    /* border:            none; */
+    background-color:  rgb(var(--color));
+    opacity:           0.5;
+    box-shadow:        0 3px 5px rgba(var(--color), 0.4);
+
+    width:          5px;
+    height:         100%;
+    margin:         0;
+    margin-bottom:  5px;
+}
